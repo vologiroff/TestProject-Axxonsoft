@@ -1,0 +1,6 @@
+framework module Pods_TestProjectAxxonsoft {
+  umbrella header "Pods-TestProjectAxxonsoft-umbrella.h"
+
+  export *
+  module * { export * }
+}
