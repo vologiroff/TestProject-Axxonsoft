@@ -31,8 +31,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let v = UITableView(frame: .zero)
         
         view.addSubview(v)
-        
-        self.videoTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+        v.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        v.delegate = self
+        v.dataSource = self
         
         return v
     }()
@@ -56,11 +58,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     lazy var cellLabel: UILabel = {
         let lbl = UILabel(frame: .zero)
         
+        lbl.tag = 10
+        
         return lbl
     }()
     
     lazy var cellImage: UIImageView = {
         let img = UIImageView(frame: .zero)
+        
+        img.tag = 11
         
         return img
     }()
@@ -69,10 +75,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         viewWait.isHidden = true
-        videoTable.delegate = self
-        videoTable.dataSource = self
         
-        setupConstraints()
+//        setupConstraints()
         populateSourceEndPoints()
     }
 
@@ -89,11 +93,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell = tableView.dequeueReusableCell(withIdentifier: "idCellVideo", for: indexPath)
         videoTable.rowHeight = 160.0
         
-        let videoTitle = cell.addSubview(cellLabel)
-        let videoThumbnail = cell.addSubview(cellImage)
+        cell.addSubview(cellLabel)
+        cell.addSubview(cellImage)
         
-//        let videoTitle = cell.viewWithTag(10) as! UILabel
-//        let videoThumbnail = cell.viewWithTag(11) as! UIImageView
+        setupConstraints()
+        
+        let videoTitle = cell.viewWithTag(10) as! UILabel
+        let videoThumbnail = cell.viewWithTag(11) as! UIImageView
         
         //Check for a long name
         if videosArray[indexPath.row].friendlyNameLong != nil && videosArray[indexPath.row].friendlyNameLong != "" {

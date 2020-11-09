@@ -23,6 +23,7 @@ extension ViewController {
         videoTable.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom)
             make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
         
         viewWait.snp.makeConstraints { make in
@@ -39,6 +40,7 @@ extension ViewController {
             make.leading.equalTo(cellLabel.snp.trailing)
             make.trailing.equalToSuperview().offset(5)
             make.centerY.equalToSuperview()
+            make.height.width.equalTo(120)
         }
     }
     
