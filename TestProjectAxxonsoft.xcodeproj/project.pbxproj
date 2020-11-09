@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53536E994F984C8084750DB7 /* Pods_TestProjectAxxonsoft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0336303488F3AE2302D202EE /* Pods_TestProjectAxxonsoft.framework */; };
+		AE7BAF9925596B8B006684DE /* ViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BAF9825596B8B006684DE /* ViewController+Constraints.swift */; };
 		AE826D2324F533B500D5D8B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D2224F533B500D5D8B1 /* AppDelegate.swift */; };
 		AE826D2524F533B500D5D8B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D2424F533B500D5D8B1 /* SceneDelegate.swift */; };
 		AE826D2724F533B500D5D8B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D2624F533B500D5D8B1 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		0336303488F3AE2302D202EE /* Pods_TestProjectAxxonsoft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestProjectAxxonsoft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1961B4765CB1F59C244A5CE9 /* Pods-TestProjectAxxonsoft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProjectAxxonsoft.release.xcconfig"; path = "Target Support Files/Pods-TestProjectAxxonsoft/Pods-TestProjectAxxonsoft.release.xcconfig"; sourceTree = "<group>"; };
+		AE7BAF9825596B8B006684DE /* ViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Constraints.swift"; sourceTree = "<group>"; };
 		AE826D1F24F533B500D5D8B1 /* TestProjectAxxonsoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProjectAxxonsoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE826D2224F533B500D5D8B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE826D2424F533B500D5D8B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				AE826D2624F533B500D5D8B1 /* ViewController.swift */,
+				AE7BAF9825596B8B006684DE /* ViewController+Constraints.swift */,
 				AE826D3F24F59F3300D5D8B1 /* PlayerViewController.swift */,
 			);
 			path = Controllers;
@@ -252,6 +255,7 @@
 			files = (
 				AE826D2724F533B500D5D8B1 /* ViewController.swift in Sources */,
 				AE826D2324F533B500D5D8B1 /* AppDelegate.swift in Sources */,
+				AE7BAF9925596B8B006684DE /* ViewController+Constraints.swift in Sources */,
 				AE826D2524F533B500D5D8B1 /* SceneDelegate.swift in Sources */,
 				AE826D3E24F572B900D5D8B1 /* VideoModel.swift in Sources */,
 				AEF2F05025461E600061A5A5 /* URLRequest+Extensions.swift in Sources */,

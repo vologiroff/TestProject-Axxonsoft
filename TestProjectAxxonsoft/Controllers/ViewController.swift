@@ -9,12 +9,13 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SnapKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    @IBOutlet weak var videoTable: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var viewWait: UIView!
+//    @IBOutlet weak var videoTable: UITableView!
+//    @IBOutlet weak var searchBar: UISearchBar!
+//    @IBOutlet weak var viewWait: UIView!
     
     private let disposeBag = DisposeBag()
     private var sourceEndPoints = [String:SourceEndPoint]()
@@ -24,6 +25,46 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var backupVideoArray: [VideoModel] = []
     
     var selectedVideoIndex: Int!
+    
+    //Creating views
+    lazy var videoTable: UITableView = {
+        let v = UITableView(frame: .zero)
+        
+        view.addSubview(v)
+        
+        self.videoTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        return v
+    }()
+    
+    lazy var searchBar: UISearchBar = {
+        let s = UISearchBar(frame: .zero)
+        
+        view.addSubview(s)
+        
+        return s
+    }()
+    
+    lazy var viewWait: UIView = {
+        let v = UIView(frame: .zero)
+        
+        view.addSubview(v)
+        
+        return v
+    }()
+    
+    lazy var cellLabel: UILabel = {
+        let lbl = UILabel(frame: .zero)
+        
+        return lbl
+    }()
+    
+    lazy var cellImage: UIImageView = {
+        let img = UIImageView(frame: .zero)
+        
+        return img
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         videoTable.delegate = self
         videoTable.dataSource = self
         
+        setupConstraints()
         populateSourceEndPoints()
     }
 
@@ -47,8 +89,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell = tableView.dequeueReusableCell(withIdentifier: "idCellVideo", for: indexPath)
         videoTable.rowHeight = 160.0
         
-        let videoTitle = cell.viewWithTag(10) as! UILabel
-        let videoThumbnail = cell.viewWithTag(11) as! UIImageView
+        let videoTitle = cell.addSubview(cellLabel)
+        let videoThumbnail = cell.addSubview(cellImage)
+        
+//        let videoTitle = cell.viewWithTag(10) as! UILabel
+//        let videoThumbnail = cell.viewWithTag(11) as! UIImageView
         
         //Check for a long name
         if videosArray[indexPath.row].friendlyNameLong != nil && videosArray[indexPath.row].friendlyNameLong != "" {
