@@ -11,7 +11,7 @@ import UIKit
 class VideoModel {
     var friendlyNameLong: String? = nil
     var friendlyNameShort: String = ""
-    var origin: String = ""
+    var state: String = ""
     var imgURL: String = ""
     var img: UIImage?
 }

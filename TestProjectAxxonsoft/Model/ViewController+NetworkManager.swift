@@ -16,29 +16,27 @@ extension ViewController {
             .subscribe(onNext: { [weak self] result in
                 if let result = result {
                     self?.sourceEndPoints = result.sourceEndPoints
-                    
                     //Creating video with thumbnails arrays
                     for key in result.sourceEndPoints.values {
                         let videoModel = VideoModel()
                         videoModel.friendlyNameLong = key.friendlyNameLong
                         videoModel.friendlyNameShort = key.friendlyNameShort
-                        videoModel.origin = key.origin
+                        videoModel.state = key.state
                         videoModel.imgURL = "http://root:root@try.axxonsoft.com:8000/asip-api/live/media/snapshot/\(key.origin)"
                         
-                        
-                        if videoModel.origin != "signal_lost" {
+                        if videoModel.state != "signal_lost" {
                             DispatchQueue.global().async {
                                 self?.loadVideoSnap(for: videoModel)
                             }
                         } else {
-                            DispatchQueue.main.async {
+                            print("stop!")
                                 videoModel.img = #imageLiteral(resourceName: "Image")
                                 self?.videosArray.append(videoModel)
                                 self?.videosArrayCopy.append(videoModel)
                                 self?.videosArray = (self?.videosArrayCopy.sorted{$0.friendlyNameLong! < $1.friendlyNameLong!})!
+                            DispatchQueue.main.async {
                                 self?.videoTable.reloadData()
                             }
-                            
                         }
                     }
                 }
@@ -50,9 +48,9 @@ extension ViewController {
         
         var imageToAppend = UIImage()
         
-        URLRequest.loadImage(resource: URL(string: video.imgURL)!)
-            .subscribe(onNext: { [weak self] image in
-                DispatchQueue.main.async {
+        DispatchQueue.global().async {
+            URLRequest.loadImage(resource: URL(string: video.imgURL)!)
+                .subscribe(onNext: { [weak self] image in
                     if let image = image {
                         imageToAppend = image
                     } else {
@@ -63,9 +61,11 @@ extension ViewController {
                     self?.videosArray.append(video)
                     self?.videosArrayCopy.append(video)
                     self?.videosArray = (self?.videosArrayCopy.sorted{$0.friendlyNameLong! < $1.friendlyNameLong!})!
-                    self?.videoTable.reloadData()
-                }
-            }).disposed(by: disposeBag)
+                    DispatchQueue.main.async {
+                        self?.videoTable.reloadData()
+                    }
+                }).disposed(by: self.disposeBag)
+        }
     }
     
 }
