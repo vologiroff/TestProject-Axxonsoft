@@ -9,15 +9,18 @@
 /* Begin PBXBuildFile section */
 		53536E994F984C8084750DB7 /* Pods_TestProjectAxxonsoft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0336303488F3AE2302D202EE /* Pods_TestProjectAxxonsoft.framework */; };
 		AE7BAF9925596B8B006684DE /* ViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BAF9825596B8B006684DE /* ViewController+Constraints.swift */; };
+		AE7BAFA12559BE92006684DE /* TableViewCellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BAFA02559BE92006684DE /* TableViewCellCustom.swift */; };
+		AE7BAFA42559C2B0006684DE /* ViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BAFA32559C2B0006684DE /* ViewController+SearchBar.swift */; };
+		AE7BAFAF255A938B006684DE /* ViewController+NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BAFAE255A938B006684DE /* ViewController+NetworkManager.swift */; };
+		AE7BAFB5255AA0C5006684DE /* ZoomViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7BAFB4255AA0C5006684DE /* ZoomViewController+Constraints.swift */; };
 		AE826D2324F533B500D5D8B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D2224F533B500D5D8B1 /* AppDelegate.swift */; };
 		AE826D2524F533B500D5D8B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D2424F533B500D5D8B1 /* SceneDelegate.swift */; };
 		AE826D2724F533B500D5D8B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D2624F533B500D5D8B1 /* ViewController.swift */; };
-		AE826D2A24F533B500D5D8B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE826D2824F533B500D5D8B1 /* Main.storyboard */; };
 		AE826D2C24F533B800D5D8B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE826D2B24F533B800D5D8B1 /* Assets.xcassets */; };
 		AE826D2F24F533B800D5D8B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE826D2D24F533B800D5D8B1 /* LaunchScreen.storyboard */; };
 		AE826D3C24F5565300D5D8B1 /* SourceEndPointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D3B24F5565300D5D8B1 /* SourceEndPointModel.swift */; };
 		AE826D3E24F572B900D5D8B1 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D3D24F572B900D5D8B1 /* VideoModel.swift */; };
-		AE826D4024F59F3300D5D8B1 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D3F24F59F3300D5D8B1 /* PlayerViewController.swift */; };
+		AE826D4024F59F3300D5D8B1 /* ZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE826D3F24F59F3300D5D8B1 /* ZoomViewController.swift */; };
 		AEF2F05025461E600061A5A5 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2F04F25461E600061A5A5 /* URLRequest+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,17 +28,20 @@
 		0336303488F3AE2302D202EE /* Pods_TestProjectAxxonsoft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestProjectAxxonsoft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1961B4765CB1F59C244A5CE9 /* Pods-TestProjectAxxonsoft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProjectAxxonsoft.release.xcconfig"; path = "Target Support Files/Pods-TestProjectAxxonsoft/Pods-TestProjectAxxonsoft.release.xcconfig"; sourceTree = "<group>"; };
 		AE7BAF9825596B8B006684DE /* ViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Constraints.swift"; sourceTree = "<group>"; };
+		AE7BAFA02559BE92006684DE /* TableViewCellCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCustom.swift; sourceTree = "<group>"; };
+		AE7BAFA32559C2B0006684DE /* ViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		AE7BAFAE255A938B006684DE /* ViewController+NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NetworkManager.swift"; sourceTree = "<group>"; };
+		AE7BAFB4255AA0C5006684DE /* ZoomViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ZoomViewController+Constraints.swift"; sourceTree = "<group>"; };
 		AE826D1F24F533B500D5D8B1 /* TestProjectAxxonsoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProjectAxxonsoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE826D2224F533B500D5D8B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE826D2424F533B500D5D8B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AE826D2624F533B500D5D8B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE826D2924F533B500D5D8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE826D2B24F533B800D5D8B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE826D2E24F533B800D5D8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE826D3024F533B800D5D8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE826D3B24F5565300D5D8B1 /* SourceEndPointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEndPointModel.swift; sourceTree = "<group>"; };
 		AE826D3D24F572B900D5D8B1 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
-		AE826D3F24F59F3300D5D8B1 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		AE826D3F24F59F3300D5D8B1 /* ZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomViewController.swift; sourceTree = "<group>"; };
 		AEF2F04F25461E600061A5A5 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		B7AAE014E07F798B0EC3DB5C /* Pods-TestProjectAxxonsoft.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProjectAxxonsoft.debug.xcconfig"; path = "Target Support Files/Pods-TestProjectAxxonsoft/Pods-TestProjectAxxonsoft.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,7 +91,6 @@
 				AE826D2224F533B500D5D8B1 /* AppDelegate.swift */,
 				AE826D2424F533B500D5D8B1 /* SceneDelegate.swift */,
 				AE826D3A24F5563700D5D8B1 /* Model */,
-				AEF2F04E25461E420061A5A5 /* Extensions */,
 				AE826D3924F5562C00D5D8B1 /* View */,
 				AE826D3824F5561700D5D8B1 /* Controllers */,
 				AE826D2D24F533B800D5D8B1 /* LaunchScreen.storyboard */,
@@ -99,8 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AE826D2624F533B500D5D8B1 /* ViewController.swift */,
-				AE7BAF9825596B8B006684DE /* ViewController+Constraints.swift */,
-				AE826D3F24F59F3300D5D8B1 /* PlayerViewController.swift */,
+				AE826D3F24F59F3300D5D8B1 /* ZoomViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -108,7 +112,10 @@
 		AE826D3924F5562C00D5D8B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE826D2824F533B500D5D8B1 /* Main.storyboard */,
+				AE7BAF9825596B8B006684DE /* ViewController+Constraints.swift */,
+				AE7BAFA32559C2B0006684DE /* ViewController+SearchBar.swift */,
+				AE7BAFB4255AA0C5006684DE /* ZoomViewController+Constraints.swift */,
+				AE7BAFA02559BE92006684DE /* TableViewCellCustom.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,16 +125,10 @@
 			children = (
 				AE826D3B24F5565300D5D8B1 /* SourceEndPointModel.swift */,
 				AE826D3D24F572B900D5D8B1 /* VideoModel.swift */,
+				AEF2F04F25461E600061A5A5 /* URLRequest+Extensions.swift */,
+				AE7BAFAE255A938B006684DE /* ViewController+NetworkManager.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		AEF2F04E25461E420061A5A5 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				AEF2F04F25461E600061A5A5 /* URLRequest+Extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E5983B71B7E6675764822805 /* Frameworks */ = {
@@ -200,7 +201,6 @@
 			files = (
 				AE826D2F24F533B800D5D8B1 /* LaunchScreen.storyboard in Resources */,
 				AE826D2C24F533B800D5D8B1 /* Assets.xcassets in Resources */,
-				AE826D2A24F533B500D5D8B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,26 +255,22 @@
 			files = (
 				AE826D2724F533B500D5D8B1 /* ViewController.swift in Sources */,
 				AE826D2324F533B500D5D8B1 /* AppDelegate.swift in Sources */,
+				AE7BAFB5255AA0C5006684DE /* ZoomViewController+Constraints.swift in Sources */,
 				AE7BAF9925596B8B006684DE /* ViewController+Constraints.swift in Sources */,
 				AE826D2524F533B500D5D8B1 /* SceneDelegate.swift in Sources */,
+				AE7BAFA42559C2B0006684DE /* ViewController+SearchBar.swift in Sources */,
 				AE826D3E24F572B900D5D8B1 /* VideoModel.swift in Sources */,
 				AEF2F05025461E600061A5A5 /* URLRequest+Extensions.swift in Sources */,
 				AE826D3C24F5565300D5D8B1 /* SourceEndPointModel.swift in Sources */,
-				AE826D4024F59F3300D5D8B1 /* PlayerViewController.swift in Sources */,
+				AE826D4024F59F3300D5D8B1 /* ZoomViewController.swift in Sources */,
+				AE7BAFA12559BE92006684DE /* TableViewCellCustom.swift in Sources */,
+				AE7BAFAF255A938B006684DE /* ViewController+NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AE826D2824F533B500D5D8B1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE826D2924F533B500D5D8B1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AE826D2D24F533B800D5D8B1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

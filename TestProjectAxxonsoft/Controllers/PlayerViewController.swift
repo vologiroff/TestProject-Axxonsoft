@@ -8,10 +8,10 @@
 
 import UIKit
 
-class PlayerViewController: UIViewController {
+class ZoomViewController: UIViewController {
     
-    @IBOutlet weak var labelView: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    var labelView: UILabel!
+    var imageView: UIImageView!
     
     var labelText: String = ""
     var image: UIImage?

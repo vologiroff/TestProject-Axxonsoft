@@ -12,11 +12,10 @@ import SnapKit
 extension ViewController {
     
     func setupConstraints() {
-      
+        
         searchBar.snp.makeConstraints { make in
             make.width.equalToSuperview().labeled("searchBarWidth")
-            //        make.height.equalTo(56).labeled("timerHeight")
-            make.top.equalToSuperview().labeled("searchBarTop")
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).labeled("searchBarTop")
             make.centerX.equalToSuperview().labeled("searchBarCenterX")
         }
         
@@ -30,18 +29,6 @@ extension ViewController {
             make.edges.equalToSuperview()
         }
         
-        cellLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(5)
-            make.top.equalToSuperview().offset(40)
-            make.centerY.equalToSuperview()
-        }
-        
-        cellImage.snp.makeConstraints { make in
-            make.leading.equalTo(cellLabel.snp.trailing)
-            make.trailing.equalToSuperview().offset(5)
-            make.centerY.equalToSuperview()
-            make.height.width.equalTo(120)
-        }
     }
     
 }

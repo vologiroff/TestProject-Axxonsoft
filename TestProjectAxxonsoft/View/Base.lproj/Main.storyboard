@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,9 +20,6 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="w9i-fs-mGd"/>
-                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CKI-Rc-tJV" userLabel="Video Table View">
                                 <rect key="frame" x="4" y="100" width="406" height="762"/>
@@ -96,9 +92,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="CUZ-mJ-h8Q" id="xC0-YG-88E"/>
-                        <outlet property="videoTable" destination="CKI-Rc-tJV" id="v2R-7r-bSG"/>
-                        <outlet property="viewWait" destination="UdR-RI-PBi" id="1RV-1g-qxR"/>
                         <segue destination="buZ-kz-9Ma" kind="show" identifier="idViewControllerPlayerView" id="4mv-kF-HWA"/>
                     </connections>
                 </viewController>
@@ -144,10 +137,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hoj-vZ-XLa"/>
-                    <connections>
-                        <outlet property="imageView" destination="fCd-uW-ENP" id="ZDP-wn-0tW"/>
-                        <outlet property="labelView" destination="ZVA-JF-8qh" id="geh-oT-hMW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1B-EB-A4y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
