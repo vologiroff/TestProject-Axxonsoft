@@ -21,6 +21,7 @@ class TableViewCellCustom: UITableViewCell {
     let cellImage: UIImageView = {
         let img = UIImageView()
         
+        img.image = #imageLiteral(resourceName: "Image")
         img.clipsToBounds = true
         img.layer.cornerRadius = 10
 

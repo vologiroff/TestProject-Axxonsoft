@@ -12,9 +12,9 @@ import RxSwift
 import SnapKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-    
-    let disposeBag = DisposeBag()
+
     var sourceEndPoints = [String:SourceEndPoint]()
+    let imageToCache = NSCache<NSString, UIImage>()
     
     //The array of fetched videos
     var videosArray: [VideoModel] = []
@@ -44,19 +44,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return s
     }()
-    
-    lazy var viewWait: UIView = {
-        let v = UIView(frame: .zero)
-        
-        view.addSubview(v)
-        
-        return v
-    }()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewWait.isHidden = true
         
         setupConstraints()
         populateSourceEndPoints()
@@ -74,34 +64,48 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell = tableView.dequeueReusableCell(withIdentifier: "idCellVideo", for: indexPath)
         
-        setupCell(cell: cell, index: indexPath)
+        DispatchQueue.global().async {
+            self.setupCell(cell: cell, index: indexPath)
+        }
         
         return cell
     }
     
     func setupCell(cell: UITableViewCell, index: IndexPath) {
-        let cellVideoTitle = cell.viewWithTag(10) as! UILabel
-        let cellVideoThumbnail = cell.viewWithTag(11) as! UIImageView
-        
-        //Check for a long name
-        if videosArray[index.row].friendlyNameLong != nil && videosArray[index.row].friendlyNameLong != "" {
-            cellVideoTitle.text = videosArray[index.row].friendlyNameLong
-        } else {
-            cellVideoTitle.text = videosArray[index.row].friendlyNameShort
+        DispatchQueue.main.async { [self] in
+            let cellVideoTitle = cell.viewWithTag(10) as! UILabel
+            let cellVideoThumbnail = cell.viewWithTag(11) as! UIImageView
+            
+            cellVideoThumbnail.image = nil
+            
+            //Check for a long name
+            if videosArray[index.row].friendlyNameLong != nil && videosArray[index.row].friendlyNameLong != "" {
+                cellVideoTitle.text = videosArray[index.row].friendlyNameLong
+            } else {
+                cellVideoTitle.text = videosArray[index.row].friendlyNameShort
+            }
+            
+            //Check for an image
+            if let cachedImage = imageToCache.object(forKey: NSString(string: videosArray[index.row].imgURL)) {
+                cellVideoThumbnail.image = cachedImage
+            } else {
+                loadVideoSnap(for: videosArray[index.row].imgURL)
+            }
         }
         
-        cellVideoThumbnail.image = videosArray[index.row].img
     }
+
     
     
     //MARK: - UITableView Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedVideoIndex = indexPath.row
         
         let ZC = ZoomViewController()
         
-        ZC.videoFetched = videosArray[selectedVideoIndex]
+        ZC.friendlyNameLong = videosArray[indexPath.row].friendlyNameLong!
+        ZC.friendlyNameShort = videosArray[indexPath.row].friendlyNameShort
+        ZC.image = (videoTable.cellForRow(at: indexPath)?.viewWithTag(11) as! UIImageView).image!
         
         present(ZC, animated: true, completion: nil)
         

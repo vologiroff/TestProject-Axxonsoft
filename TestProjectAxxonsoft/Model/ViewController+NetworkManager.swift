@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+
+let disposeBag = DisposeBag()
 
 extension ViewController {
     
@@ -16,6 +19,10 @@ extension ViewController {
             .subscribe(onNext: { [weak self] result in
                 if let result = result {
                     self?.sourceEndPoints = result.sourceEndPoints
+                    
+                    self?.videosArray.removeAll()
+                    self?.videosArrayCopy.removeAll()
+                    
                     //Creating video with thumbnails arrays
                     for key in result.sourceEndPoints.values {
                         let videoModel = VideoModel()
@@ -24,48 +31,41 @@ extension ViewController {
                         videoModel.state = key.state
                         videoModel.imgURL = "http://root:root@try.axxonsoft.com:8000/asip-api/live/media/snapshot/\(key.origin)"
                         
-                        if videoModel.state != "signal_lost" {
-                            DispatchQueue.global().async {
-                                self?.loadVideoSnap(for: videoModel)
-                            }
-                        } else {
-                            print("stop!")
-                                videoModel.img = #imageLiteral(resourceName: "Image")
-                                self?.videosArray.append(videoModel)
-                                self?.videosArrayCopy.append(videoModel)
-                                self?.videosArray = (self?.videosArrayCopy.sorted{$0.friendlyNameLong! < $1.friendlyNameLong!})!
-                            DispatchQueue.main.async {
-                                self?.videoTable.reloadData()
-                            }
-                        }
+                        self?.videosArray.append(videoModel)
+                        self?.videosArrayCopy.append(videoModel)
+                    }
+                    
+                    self?.videosArray = (self?.videosArrayCopy.sorted{$0.friendlyNameLong! < $1.friendlyNameLong!})!
+                    
+                    DispatchQueue.main.async {
+                        self?.videoTable.reloadData()
                     }
                 }
             }).disposed(by: disposeBag)
     }
     
-    
-    func loadVideoSnap(for video: VideoModel) {
+    func loadVideoSnap(for imageUrl: String) {
         
-        var imageToAppend = UIImage()
+        DispatchQueue.main.async { [self] in
+            imageToCache.setObject(UIImage(named: "loadingImage")!, forKey: NSString(string: imageUrl))
+            videoTable.reloadData()
+        }
         
-        DispatchQueue.global().async {
-            URLRequest.loadImage(resource: URL(string: video.imgURL)!)
-                .subscribe(onNext: { [weak self] image in
-                    if let image = image {
-                        imageToAppend = image
-                    } else {
-                        imageToAppend = #imageLiteral(resourceName: "Image")
+        URLRequest.loadImage(resource: URL(string: imageUrl)!)
+            .subscribe(onNext: { image in
+                DispatchQueue.main.async { [self] in
+                    guard let downloadedImage = image else {
+                        imageToCache.setObject(#imageLiteral(resourceName: "Image"), forKey: NSString(string: imageUrl))
+                        videoTable.reloadData()
+                        return
                     }
                     
-                    video.img = imageToAppend
-                    self?.videosArray.append(video)
-                    self?.videosArrayCopy.append(video)
-                    self?.videosArray = (self?.videosArrayCopy.sorted{$0.friendlyNameLong! < $1.friendlyNameLong!})!
-                    DispatchQueue.main.async {
-                        self?.videoTable.reloadData()
-                    }
-                }).disposed(by: self.disposeBag)
-        }
+                    imageToCache.setObject(downloadedImage, forKey: NSString(string: imageUrl))
+                    videoTable.reloadData()
+                }
+                
+            }).disposed(by: disposeBag)
+        
     }
     
 }

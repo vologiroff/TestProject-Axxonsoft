@@ -25,10 +25,6 @@ extension ViewController {
             make.bottom.equalToSuperview()
         }
         
-        viewWait.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
     }
     
 }

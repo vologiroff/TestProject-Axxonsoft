@@ -22,7 +22,7 @@ class ZoomViewController: UIViewController {
     
     lazy var imageView: UIImageView = {
         let v = UIImageView(frame: .zero)
-        
+    
         v.clipsToBounds = true
         v.layer.cornerRadius = 10
         
@@ -31,7 +31,9 @@ class ZoomViewController: UIViewController {
         return v
     }()
     
-    var videoFetched: VideoModel!
+    lazy var friendlyNameLong = String()
+    lazy var friendlyNameShort = String()
+    lazy var image = UIImage()
     
     override func viewDidLoad() {
         view.backgroundColor = .systemGray5
@@ -42,13 +44,13 @@ class ZoomViewController: UIViewController {
     
     func setup() {
         
-        if videoFetched.friendlyNameLong != nil && videoFetched.friendlyNameLong != "" {
-            labelView.text = videoFetched.friendlyNameLong!
+        if friendlyNameLong != "" {
+            labelView.text = friendlyNameLong
         } else {
-            labelView.text = videoFetched.friendlyNameShort
+            labelView.text = friendlyNameShort
         }
         
-        imageView.image = videoFetched.img
+        imageView.image = image
     }
     
 }

@@ -9,37 +9,37 @@
 import UIKit
 
 extension ViewController: UISearchBarDelegate {
-
-func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     
-    videosArray = videosArrayCopy.filter({
-        $0.friendlyNameShort.contains(searchBar.text!)
-    })
-    
-    if(searchBar.text?.count == 0) {
-        videosArray = videosArrayCopy
-    }
-    
-    videoTable.reloadData()
-    DispatchQueue.main.async {
-        searchBar.resignFirstResponder()
-    }
-}
-
-func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    if(searchBar.text?.count == 0) {
-        videosArray = videosArrayCopy
-    
-        DispatchQueue.main.async {
-            searchBar.resignFirstResponder()
-        }
-    } else {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         videosArray = videosArrayCopy.filter({
             $0.friendlyNameShort.contains(searchBar.text!)
         })
+        
+        if(searchBar.text?.count == 0) {
+            videosArray = videosArrayCopy
+        }
+        
+        videoTable.reloadData()
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
     }
     
-    videoTable.reloadData()
-}
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchBar.text?.count == 0) {
+            videosArray = videosArrayCopy
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        } else {
+            videosArray = videosArrayCopy.filter({
+                $0.friendlyNameShort.contains(searchBar.text!)
+            })
+        }
+        
+        videoTable.reloadData()
+    }
 }
 
