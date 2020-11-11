@@ -31,8 +31,11 @@ extension ViewController {
                         videoModel.state = key.state
                         videoModel.imgURL = "http://root:root@try.axxonsoft.com:8000/asip-api/live/media/snapshot/\(key.origin)"
                         
-                        self?.videosArray.append(videoModel)
-                        self?.videosArrayCopy.append(videoModel)
+                        //Testing cells with a big amount of videos
+                        for _ in 1...6 {
+                            self?.videosArray.append(videoModel)
+                            self?.videosArrayCopy.append(videoModel)
+                        }
                     }
                     
                     self?.videosArray = (self?.videosArrayCopy.sorted{$0.friendlyNameLong! < $1.friendlyNameLong!})!
