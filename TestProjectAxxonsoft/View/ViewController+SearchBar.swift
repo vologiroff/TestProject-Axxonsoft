@@ -17,7 +17,7 @@ extension ViewController: UISearchBarDelegate {
         })
         
         if(searchBar.text?.count == 0) {
-            videosArray = videosArrayCopy
+            videosArray = videosArrayCopy.sorted{$0.friendlyNameLong! < $1.friendlyNameLong!}
         }
         
         videoTable.reloadData()
@@ -28,7 +28,7 @@ extension ViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchBar.text?.count == 0) {
-            videosArray = videosArrayCopy
+            videosArray = videosArrayCopy.sorted{$0.friendlyNameLong! < $1.friendlyNameLong!}
             
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()

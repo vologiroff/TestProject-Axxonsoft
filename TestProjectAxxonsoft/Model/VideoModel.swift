@@ -13,5 +13,4 @@ class VideoModel {
     var friendlyNameShort: String = ""
     var state: String = ""
     var imgURL: String = ""
-    var img: UIImage?
 }

@@ -40,6 +40,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     lazy var searchBar: UISearchBar = {
         let s = UISearchBar(frame: .zero)
         
+        s.delegate = self
+        
         view.addSubview(s)
         
         return s
